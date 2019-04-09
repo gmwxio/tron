@@ -11,6 +11,10 @@ The project's principles include;
 - principle of least privilege
 - distinguishing authentication from authorization (to the extent of replacing the word authorization by **resource**)
 - rule of least power
+- defaults not implicits (watch out for hidden assumptions aka implicits)
+- understand dualities (static vs dynamic)
+- understand context aka shades or grey (eg static vs less static vs less static vs dynamic)
+- Probablity of success is function of perceived value as a ratio of perceived pain of adoption
 
 ## Status 
 
