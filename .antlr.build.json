@@ -1,0 +1,25 @@
+{
+    "jar"           : "/home/garym/devel/wxio/antlr4/tool/target/antlr4-4.7.1-SNAPSHOT-complete.jar",
+    "language"      : "Go",
+    "regexp" : {
+        "match"         : "github.com/antlr/antlr4/runtime/Go/antlr",
+        "replace"       : "github.com/wxio/goantlr"
+    },
+    "antlr" : [
+        {
+            "outputdir"     : "go/adllp",
+            "package"       : "adllp",
+            "visitor"       : true,
+            "srcdir"        : "antlr/adl",
+            "files"         : ["AdlL.g4", "AdlP.g4"]        
+        },
+        {
+            "libdir"           : "go/adllp",
+            "outputdir"     : "go/adlw1",
+            "package"       : "adlw1",
+            "visitor"       : true,
+            "srcdir"        : "antlr/adl",
+            "files"         : ["AdlW1.g4"]        
+        }
+    ]
+}
