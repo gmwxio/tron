@@ -11,6 +11,27 @@ import (
 	"github.com/jpillora/opts"
 )
 
+type antlrs struct {
+	Jar   string  `opts:"env=ANTLR_JAR"`
+	Antlr []antlr `opts:"-"`
+}
+
+func NewAntlrs() opts.Opts {
+	return opts.New(&antlrs{}).Name("antlrs")
+}
+
+func (ans *antlrs) Run() error {
+	for _, an := range ans.Antlr {
+		if an.Jar == "" {
+			an.Jar = ans.Jar
+		}
+		if err := an.Run(); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
 type antlr struct {
 	Jar       string `opts:"env=ANTLR_JAR"`
 	Language  string
@@ -20,7 +41,7 @@ type antlr struct {
 	Visitor   bool
 	SrcDir    string
 	Files     []string
-	Regexp    struct {
+	Regexp    *struct {
 		Match   string
 		Replace string
 	}
@@ -63,6 +84,15 @@ func (an *antlr) Run() error {
 	if err != nil {
 		return err
 	}
+	if an.Regexp != nil && an.Regexp.Match == "" {
+		if err = sed(an, cwd); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+func sed(an *antlr, cwd string) error {
 	fmt.Printf("%s %s\n", an.Regexp.Match, an.Regexp.Replace)
 	f, err := os.Open(cwd + "/" + an.OutputDir)
 	if err != nil {

@@ -1,25 +1,49 @@
 {
     "jar"           : "/home/garym/devel/wxio/antlr4/tool/target/antlr4-4.7.1-SNAPSHOT-complete.jar",
-    "language"      : "Go",
-    "regexp" : {
-        "match"         : "github.com/antlr/antlr4/runtime/Go/antlr",
-        "replace"       : "github.com/wxio/goantlr"
-    },
     "antlr" : [
         {
+            "language"      : "Go",
             "outputdir"     : "go/adllp",
             "package"       : "adllp",
             "visitor"       : true,
-            "srcdir"        : "antlr/adl",
-            "files"         : ["AdlL.g4", "AdlP.g4"]        
+            "srcdir"        : "antlr",
+            "files"         : ["AdlL.g4", "AdlP.g4"],
+            "regexp" : {
+                "match"         : "github.com/antlr/antlr4/runtime/Go/antlr",
+                "replace"       : "github.com/wxio/goantlr"
+            }
         },
         {
-            "libdir"           : "go/adllp",
-            "outputdir"     : "go/adlw1",
+            "language"      : "Go",
+            "libdir"        : "go/adllp",
+            "outputdir"     : "go/adlwi",
             "package"       : "adlw1",
             "visitor"       : true,
-            "srcdir"        : "antlr/adl",
-            "files"         : ["AdlW1.g4"]        
+            "srcdir"        : "antlr",
+            "files"         : ["AdlWi.g4"],
+            "regexp" : {
+                "match"         : "github.com/antlr/antlr4/runtime/Go/antlr",
+                "replace"       : "github.com/wxio/goantlr"
+            }
         }
+        ,
+        {
+            "language"      : "Java",
+            "outputdir"     : "java/adllp",
+            "package"       : "adllp",
+            "visitor"       : true,
+            "srcdir"        : "antlr",
+            "files"         : ["AdlL.g4", "AdlP.g4"]
+        },
+        {
+            "language"      : "Java",
+            "libdir"        : "java/adllp",
+            "outputdir"     : "java/adlwi",
+            "package"       : "adlw1",
+            "visitor"       : true,
+            "srcdir"        : "antlr",
+            "files"         : ["AdlWi.g4"]
+        }
+
     ]
 }

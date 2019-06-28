@@ -1,4 +1,4 @@
-parser grammar AdlW1;
+parser grammar AdlWi;
 tokens {
     DNAC, Name, Exnotation
 }
