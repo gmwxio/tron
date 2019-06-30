@@ -3,7 +3,7 @@
     "antlr" : [
         {
             "language"      : "Go",
-            "outputdir"     : "go/adllp",
+            "outputdir"     : "go/internal/adllp",
             "package"       : "adllp",
             "visitor"       : true,
             "srcdir"        : "antlr",
@@ -16,7 +16,7 @@
         {
             "language"      : "Go",
             "libdir"        : "go/adllp",
-            "outputdir"     : "go/adlwi",
+            "outputdir"     : "go/internal/adlwi",
             "package"       : "adlw1",
             "visitor"       : true,
             "srcdir"        : "antlr",
@@ -26,24 +26,5 @@
                 "replace"       : "github.com/wxio/goantlr"
             }
         }
-        ,
-        {
-            "language"      : "Java",
-            "outputdir"     : "java/adllp",
-            "package"       : "adllp",
-            "visitor"       : true,
-            "srcdir"        : "antlr",
-            "files"         : ["AdlL.g4", "AdlP.g4"]
-        },
-        {
-            "language"      : "Java",
-            "libdir"        : "java/adllp",
-            "outputdir"     : "java/adlwi",
-            "package"       : "adlw1",
-            "visitor"       : true,
-            "srcdir"        : "antlr",
-            "files"         : ["AdlWi.g4"]
-        }
-
     ]
 }
