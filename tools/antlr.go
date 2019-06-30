@@ -84,7 +84,7 @@ func (an *antlr) Run() error {
 	if err != nil {
 		return err
 	}
-	if an.Regexp != nil && an.Regexp.Match == "" {
+	if an.Regexp != nil && an.Regexp.Match != "" {
 		if err = sed(an, cwd); err != nil {
 			return err
 		}

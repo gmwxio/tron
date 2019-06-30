@@ -11,7 +11,11 @@ json
     : DOWN jsonVal UP EOF
 ;
 module
-    : tok=Module (DOWN annotation* Import* tld* UP)?
+    : tok=Module (DOWN annotation* import_* tld* UP)?
+;
+import_
+    : ImportModule                     #ImportModule
+    | ImportScopedName                 #ImportScopedModule
 ;
 tld
     : tok=Struct  (DOWN annotation* TypeParam? nameBody* UP)?             #Struct
@@ -29,9 +33,12 @@ nameBody
 ;
 annotation
     : tok=Annotation (DOWN jsonVal UP)?
+    | tok=AnnotationNotScoped (DOWN jsonVal UP)?
+    | tok=AnnotationScoped (DOWN jsonVal UP)?
 ;
 typeExpr_
-    : tok=TypeExpr (DOWN typeExprElem_+ UP)?
+    : tok=TypeExprPrimOrParam
+    | tok=TypeExprTypeExpr (DOWN typeExprElem_+ UP)
 ;
 typeExprElem_
     : tok=TypeExprElem (DOWN typeExprElem_+ UP)?                         #TypeParams
