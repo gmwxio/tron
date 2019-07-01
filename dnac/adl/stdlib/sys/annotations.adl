@@ -1,0 +1,12 @@
+// Standard annotation types, imported by default.
+
+module sys.annotations
+{
+
+type Doc = String;
+
+type SerializedName = String;
+
+type CustomSerialization = Bool;
+
+};

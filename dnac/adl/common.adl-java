@@ -1,0 +1,32 @@
+module common
+{
+import adlc.config.java.*;
+
+annotation JavaPackage "au.com.helixta.adl.common";
+
+annotation Instant JavaCustomType {
+    "javaname" : "java.time.Instant",
+    "helpers" : "au.com.helixta.adl.custom.InstantHelpers"
+};
+
+annotation LocalDate JavaCustomType {
+    "javaname" : "java.time.LocalDate",
+    "helpers" : "au.com.helixta.adl.custom.LocalDateHelpers"
+};
+
+annotation LocalTime JavaCustomType {
+    "javaname" : "java.time.LocalTime",
+    "helpers" : "au.com.helixta.adl.custom.LocalTimeHelpers"
+};
+
+annotation LocalDateTime JavaCustomType {
+    "javaname" : "java.time.LocalDateTime",
+    "helpers" : "au.com.helixta.adl.custom.LocalDateTimeHelpers"
+};
+
+annotation GeographyGeoJson JavaCustomType {
+    "javaname" : "org.postgis.PGgeometry",
+    "helpers": "au.com.helixta.adl.custom.PGgeometryHelpers"
+};
+
+};

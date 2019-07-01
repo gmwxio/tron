@@ -1,0 +1,40 @@
+module common {
+
+import common.strings.StringNE;
+
+/// A instant in time, represented as milliseconds from
+/// the epoch of "1970-01-01T00:00:00Z
+newtype Instant = Int64;
+
+/// A date in ISO8601 format
+newtype LocalDate = String = "1970-01-01";
+
+/// A time in ISO8601 format
+newtype LocalTime = String = "00:00:00";
+
+/// A datetime in ISO8601 format
+newtype LocalDateTime = String = "1970-01-01T00:00:00";
+
+/// An IANA timezone
+newtype Timezone = StringNE;
+
+/// A holder for paginated results
+struct Paginated<T> {
+
+  /// The paginated items
+  Vector<T> items;
+
+  /// The offset used for this query
+  Int64 current_offset;
+
+  /// The size of the entire date set
+  Int64 total_size;
+};
+
+/// Empty Struct (Used mostly for Void RPC responses)
+struct Unit {};
+
+/// Postgres Geography type that is seralizaed in to GeoJson
+newtype GeographyGeoJson = String;
+
+};

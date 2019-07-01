@@ -1,0 +1,29 @@
+module common.http {
+
+/// A marker type to associate the output response
+/// type for an http Get request.
+type Get<I> = Void;
+
+/// A marker type to associate the input request and output response
+/// types for an http put request.
+type Put<I,O> = Void;
+
+/// A marker type to associate the input request and output response
+/// types for an http post request.
+type Post<I,O> = Void;
+
+/// An annotation indicating the URL path for a request
+type Path = String;
+
+/// An annotation indicating that a request requires an Authorization http header
+type AuthHeader = Void;
+
+/// An annotation indicating that a request is idemponent, and can hence be safely
+/// retried on failure.
+type Idempotent = Void;
+
+/// An annotation indicating that a request can be made idempotent if the caller
+/// provides an Idempotency-Key header with a unique value.
+type IdempotentWithKey = Void;
+
+};

@@ -1,0 +1,9 @@
+module typedefault {
+
+struct A<T> {
+  T name;
+};
+
+newtype B<T> = Vector<T> = [{}];
+
+};

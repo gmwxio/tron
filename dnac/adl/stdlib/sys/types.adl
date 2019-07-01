@@ -1,0 +1,33 @@
+module sys.types
+{
+// Some standard types
+
+struct Pair<T1,T2>
+{
+    T1 v1;
+    T2 v2;
+};
+
+union Either<T1,T2>
+{
+    T1 left;
+    T2 right;
+};
+
+union Maybe<T>
+{
+    Void nothing;
+    T just;
+};
+
+union Error<T>
+{
+    T value;
+    String error;
+};
+
+newtype Map<K,V> = Vector<Pair<K,V>>;
+
+newtype Set<T> = Vector<T>;
+
+};

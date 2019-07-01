@@ -1,0 +1,51 @@
+module common.config.log
+{
+
+// Configuration for logging
+union LogLevel {
+  Void DEBUG;
+  Void INFO;
+  Void WARN;
+  Void ERROR;
+  Void OFF;
+};
+
+struct StdoutConfig {
+  LogLevel level;
+};
+
+struct FluentdConfig {
+  LogLevel level;
+  String hostname;
+  Int32 port;
+  String tag;
+};
+
+/// Server side Rollbar config
+/// NOTE: Name is `ServerRollbarConfig` due to being named prior to adding
+/// `ClientRollbarConfig`
+struct RollbarConfig {
+  LogLevel level;
+  String serverToken;
+};
+
+/// Server side logging, i.e. reporting errors originating from the server
+/// NOTE: Name is not `ServerLogConfig` due to being named prior to adding
+/// `ClientLogConfig`
+struct LogConfig {
+  Nullable<StdoutConfig> stdout = {"level" : "INFO"};
+  Nullable<FluentdConfig> fluentd = null;
+  Nullable<RollbarConfig> rollbar = null;
+};
+
+/// Client side Rollbar config, i.e. from Rollbar JS
+struct ClientRollbarConfig {
+  String accessToken;
+};
+
+/// Client side logging, i.e. reporting errors originating from the client
+struct ClientLogConfig {
+  Nullable<ClientRollbarConfig> rollbar = null;
+};
+
+};

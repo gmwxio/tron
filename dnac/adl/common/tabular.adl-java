@@ -1,0 +1,22 @@
+module common.tabular
+{
+
+import adlc.config.java.*;
+
+annotation JavaPackage "au.com.helixta.adl.common.tabular";
+
+// A custom binding that reuses the generated type, but generalizes the
+// json serialization, to handle backwards compatibility.
+//
+// TODO(timd): This custom annotation can be removed once the brain has been
+// upgraded to generate json compatible with the current FieldNameOrFunction definition.
+//
+// properties in __user_roles table
+// object_conditions in __user_object_permissions table
+annotation FieldNameOrFunction JavaCustomType {
+    "javaname" : "au.com.helixta.adl.common.tabular.FieldNameOrFunction",
+    "helpers" : "au.com.helixta.adl.custom.FieldNameOrFunctionHelpers",
+    "generateType" : true
+};
+};
+

@@ -1,0 +1,26 @@
+/// Some string type aliases, with attributes to derive UI validation
+module common.strings
+{
+
+import common.ui.ValidRegex;
+
+/// A string that isn't empty, and isn't only whitespace.
+type StringNE = String;
+
+annotation StringNE ValidRegex {
+  "regex" : "^.*\\S+.*$",
+  "description" : "non empty"
+};
+
+/// An alphanumeric string, with hyphens for separation.
+type StringANH = String;
+
+/// A multi line, free-form text string
+type StringML = String;
+
+annotation StringANH ValidRegex {
+  "regex" : "^[A-Za-z][A-Za-z0-9-]*$",
+  "description" : "alphanumeric"
+};
+
+};

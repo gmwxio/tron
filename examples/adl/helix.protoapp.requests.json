@@ -1,0 +1,581 @@
+{
+    "annotations": [
+        {
+            "v1": {
+                "moduleName": "",
+                "name": "MyConfig"
+            },
+            "v2": {
+                "a": {
+                    "a": "mystring"
+                }
+            }
+        },
+        {
+            "v1": {
+                "moduleName": "",
+                "name": "MyConfigMap"
+            },
+            "v2": {
+                "a a": {
+                    "a": {
+                        "a": "hw"
+                    }
+                },
+                "a b": {
+                    "b": {
+                        "b": 10
+                    }
+                }
+            }
+        },
+        {
+            "v1": {
+                "moduleName": "",
+                "name": "StrLiteral"
+            },
+            "v2": {
+                "a": "b"
+            }
+        },
+        {
+            "v1": {
+                "moduleName": "common.http",
+                "name": "Path"
+            },
+            "v2": "mod anno str"
+        }
+    ],
+    "decls": {
+        "A": {
+            "annotations": [],
+            "name": "A",
+            "type_": {
+                "struct_": {
+                    "fields": [
+                        {
+                            "annotations": [],
+                            "default": "nothing",
+                            "name": "a",
+                            "serializedName": "a",
+                            "typeExpr": {
+                                "parameters": [],
+                                "typeRef": {
+                                    "primitive": "String"
+                                }
+                            }
+                        }
+                    ],
+                    "typeParams": []
+                }
+            },
+            "version": "nothing"
+        },
+        "B": {
+            "annotations": [],
+            "name": "B",
+            "type_": {
+                "struct_": {
+                    "fields": [
+                        {
+                            "annotations": [],
+                            "default": "nothing",
+                            "name": "b",
+                            "serializedName": "b",
+                            "typeExpr": {
+                                "parameters": [],
+                                "typeRef": {
+                                    "primitive": "Int32"
+                                }
+                            }
+                        }
+                    ],
+                    "typeParams": []
+                }
+            },
+            "version": "nothing"
+        },
+        "Const": {
+            "annotations": [],
+            "name": "Const",
+            "type_": {
+                "struct_": {
+                    "fields": [],
+                    "typeParams": []
+                }
+            },
+            "version": "nothing"
+        },
+        "CurrentTime": {
+            "annotations": [
+                {
+                    "v1": {
+                        "moduleName": "common.http",
+                        "name": "Path"
+                    },
+                    "v2": "/debug/time"
+                },
+                {
+                    "v1": {
+                        "moduleName": "sys.annotations",
+                        "name": "Doc"
+                    },
+                    "v2": "docontype\n"
+                }
+            ],
+            "name": "CurrentTime",
+            "type_": {
+                "type_": {
+                    "typeExpr": {
+                        "parameters": [
+                            {
+                                "parameters": [],
+                                "typeRef": {
+                                    "reference": {
+                                        "moduleName": "common",
+                                        "name": "Instant"
+                                    }
+                                }
+                            }
+                        ],
+                        "typeRef": {
+                            "reference": {
+                                "moduleName": "common.http",
+                                "name": "Get"
+                            }
+                        }
+                    },
+                    "typeParams": []
+                }
+            },
+            "version": "nothing"
+        },
+        "DummyException": {
+            "annotations": [
+                {
+                    "v1": {
+                        "moduleName": "common.http",
+                        "name": "Path"
+                    },
+                    "v2": "/debug/dummy-exception"
+                },
+                {
+                    "v1": {
+                        "moduleName": "sys.annotations",
+                        "name": "Doc"
+                    },
+                    "v2": "doconnewtype\n"
+                }
+            ],
+            "name": "DummyException",
+            "type_": {
+                "newtype_": {
+                    "default": "nothing",
+                    "typeExpr": {
+                        "parameters": [
+                            {
+                                "parameters": [],
+                                "typeRef": {
+                                    "primitive": "String"
+                                }
+                            },
+                            {
+                                "parameters": [],
+                                "typeRef": {
+                                    "reference": {
+                                        "moduleName": "common",
+                                        "name": "Unit"
+                                    }
+                                }
+                            }
+                        ],
+                        "typeRef": {
+                            "reference": {
+                                "moduleName": "common.http",
+                                "name": "Post"
+                            }
+                        }
+                    },
+                    "typeParams": []
+                }
+            },
+            "version": "nothing"
+        },
+        "Hello": {
+            "annotations": [
+                {
+                    "v1": {
+                        "moduleName": "common.http",
+                        "name": "Path"
+                    },
+                    "v2": "localanno"
+                },
+                {
+                    "v1": {
+                        "moduleName": "sys.annotations",
+                        "name": "Doc"
+                    },
+                    "v2": "doccmt\n"
+                }
+            ],
+            "name": "Hello",
+            "type_": {
+                "type_": {
+                    "typeExpr": {
+                        "parameters": [
+                            {
+                                "parameters": [],
+                                "typeRef": {
+                                    "reference": {
+                                        "moduleName": "",
+                                        "name": "HelloReq"
+                                    }
+                                }
+                            },
+                            {
+                                "parameters": [
+                                    {
+                                        "parameters": [
+                                            {
+                                                "parameters": [
+                                                    {
+                                                        "parameters": [
+                                                            {
+                                                                "parameters": [],
+                                                                "typeRef": {
+                                                                    "reference": {
+                                                                        "moduleName": "",
+                                                                        "name": "A"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ],
+                                                        "typeRef": {
+                                                            "primitive": "Vector"
+                                                        }
+                                                    }
+                                                ],
+                                                "typeRef": {
+                                                    "primitive": "Vector"
+                                                }
+                                            }
+                                        ],
+                                        "typeRef": {
+                                            "primitive": "Vector"
+                                        }
+                                    },
+                                    {
+                                        "parameters": [],
+                                        "typeRef": {
+                                            "primitive": "Int32"
+                                        }
+                                    },
+                                    {
+                                        "parameters": [],
+                                        "typeRef": {
+                                            "primitive": "Float"
+                                        }
+                                    }
+                                ],
+                                "typeRef": {
+                                    "reference": {
+                                        "moduleName": "",
+                                        "name": "HelloResp"
+                                    }
+                                }
+                            }
+                        ],
+                        "typeRef": {
+                            "reference": {
+                                "moduleName": "common.http",
+                                "name": "Post"
+                            }
+                        }
+                    },
+                    "typeParams": [
+                        "A"
+                    ]
+                }
+            },
+            "version": "nothing"
+        },
+        "HelloReq": {
+            "annotations": [
+                {
+                    "v1": {
+                        "moduleName": "",
+                        "name": "SA"
+                    },
+                    "v2": {
+                        "a": "b"
+                    }
+                },
+                {
+                    "v1": {
+                        "moduleName": "common.db",
+                        "name": "DbTable"
+                    },
+                    "v2": {
+                        "indexes": [
+                            [
+                                "username"
+                            ]
+                        ],
+                        "withIdPrimaryKey": true
+                    }
+                },
+                {
+                    "v1": {
+                        "moduleName": "sys.annotations",
+                        "name": "Doc"
+                    },
+                    "v2": "doconstr\n"
+                }
+            ],
+            "name": "HelloReq",
+            "type_": {
+                "struct_": {
+                    "fields": [
+                        {
+                            "annotations": [
+                                {
+                                    "v1": {
+                                        "moduleName": "common.http",
+                                        "name": "Path"
+                                    },
+                                    "v2": "field anno"
+                                }
+                            ],
+                            "default": "nothing",
+                            "name": "name",
+                            "serializedName": "name",
+                            "typeExpr": {
+                                "parameters": [],
+                                "typeRef": {
+                                    "primitive": "String"
+                                }
+                            }
+                        }
+                    ],
+                    "typeParams": []
+                }
+            },
+            "version": "nothing"
+        },
+        "HelloResp": {
+            "annotations": [],
+            "name": "HelloResp",
+            "type_": {
+                "struct_": {
+                    "fields": [],
+                    "typeParams": [
+                        "A",
+                        "B",
+                        "C"
+                    ]
+                }
+            },
+            "version": "nothing"
+        },
+        "Literal": {
+            "annotations": [],
+            "name": "Literal",
+            "type_": {
+                "type_": {
+                    "typeExpr": {
+                        "parameters": [
+                            {
+                                "parameters": [],
+                                "typeRef": {
+                                    "typeParam": "T"
+                                }
+                            }
+                        ],
+                        "typeRef": {
+                            "primitive": "StringMap"
+                        }
+                    },
+                    "typeParams": [
+                        "T"
+                    ]
+                }
+            },
+            "version": "nothing"
+        },
+        "LoginResp": {
+            "annotations": [],
+            "name": "LoginResp",
+            "type_": {
+                "union_": {
+                    "fields": [
+                        {
+                            "annotations": [
+                                {
+                                    "v1": {
+                                        "moduleName": "",
+                                        "name": "SA"
+                                    },
+                                    "v2": {
+                                        "a": "b"
+                                    }
+                                }
+                            ],
+                            "default": "nothing",
+                            "name": "accessToken",
+                            "serializedName": "accessToken",
+                            "typeExpr": {
+                                "parameters": [],
+                                "typeRef": {
+                                    "typeParam": "T"
+                                }
+                            }
+                        }
+                    ],
+                    "typeParams": [
+                        "T"
+                    ]
+                }
+            },
+            "version": "nothing"
+        },
+        "MyConfig": {
+            "annotations": [],
+            "name": "MyConfig",
+            "type_": {
+                "union_": {
+                    "fields": [
+                        {
+                            "annotations": [],
+                            "default": "nothing",
+                            "name": "a",
+                            "serializedName": "a",
+                            "typeExpr": {
+                                "parameters": [],
+                                "typeRef": {
+                                    "reference": {
+                                        "moduleName": "",
+                                        "name": "A"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "annotations": [],
+                            "default": "nothing",
+                            "name": "b",
+                            "serializedName": "b",
+                            "typeExpr": {
+                                "parameters": [],
+                                "typeRef": {
+                                    "reference": {
+                                        "moduleName": "",
+                                        "name": "B"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "typeParams": []
+                }
+            },
+            "version": "nothing"
+        },
+        "MyConfigMap": {
+            "annotations": [],
+            "name": "MyConfigMap",
+            "type_": {
+                "type_": {
+                    "typeExpr": {
+                        "parameters": [
+                            {
+                                "parameters": [],
+                                "typeRef": {
+                                    "reference": {
+                                        "moduleName": "",
+                                        "name": "MyConfig"
+                                    }
+                                }
+                            }
+                        ],
+                        "typeRef": {
+                            "primitive": "StringMap"
+                        }
+                    },
+                    "typeParams": []
+                }
+            },
+            "version": "nothing"
+        },
+        "SA": {
+            "annotations": [],
+            "name": "SA",
+            "type_": {
+                "struct_": {
+                    "fields": [
+                        {
+                            "annotations": [],
+                            "default": "nothing",
+                            "name": "a",
+                            "serializedName": "a",
+                            "typeExpr": {
+                                "parameters": [],
+                                "typeRef": {
+                                    "primitive": "String"
+                                }
+                            }
+                        }
+                    ],
+                    "typeParams": []
+                }
+            },
+            "version": "nothing"
+        },
+        "StrLiteral": {
+            "annotations": [],
+            "name": "StrLiteral",
+            "type_": {
+                "type_": {
+                    "typeExpr": {
+                        "parameters": [
+                            {
+                                "parameters": [],
+                                "typeRef": {
+                                    "primitive": "String"
+                                }
+                            }
+                        ],
+                        "typeRef": {
+                            "reference": {
+                                "moduleName": "",
+                                "name": "Literal"
+                            }
+                        }
+                    },
+                    "typeParams": []
+                }
+            },
+            "version": "nothing"
+        }
+    },
+    "imports": [
+        {
+            "moduleName": "sys.annotations"
+        },
+        {
+            "moduleName": "common.http"
+        },
+        {
+            "moduleName": "common"
+        },
+        {
+            "scopedName": {
+                "moduleName": "common.db",
+                "name": "DbTable"
+            }
+        },
+        {
+            "moduleName": "sys.types"
+        }
+    ],
+    "name": "helix.protoapp.requests"
+}
