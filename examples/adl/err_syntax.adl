@@ -1,4 +1,4 @@
-module helix.protoapp.requests {
+modules helix.protoapp.requests {
 
 import common.http.*;
 //import common;
@@ -11,7 +11,7 @@ import sys.types.*;
 @Path "localanno"
 type Hello<A> = Post<HelloReq, HelloResp<Vector<Vector<Vector<A>>>,Int32,Float>>;
 
-struct Const {
+structs Const {
 };
 
 type Literal<T> = StringMap<T>;
