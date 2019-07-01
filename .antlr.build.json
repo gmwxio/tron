@@ -12,7 +12,8 @@
                 "match"         : "github.com/antlr/antlr4/runtime/Go/antlr",
                 "replace"       : "github.com/wxio/goantlr"
             }
-        },
+        }
+        ,
         {
             "language"      : "Go",
             "libdir"        : "go/internal/adllp",
@@ -21,6 +22,20 @@
             "visitor"       : true,
             "srcdir"        : "antlr",
             "files"         : ["AdlWi.g4"],
+            "regexp" : {
+                "match"         : "github.com/antlr/antlr4/runtime/Go/antlr",
+                "replace"       : "github.com/wxio/goantlr"
+            }
+        }
+        ,
+        {
+            "language"      : "Go",
+            "libdir"        : "go/internal/adllp",
+            "outputdir"     : "go/internal/adlwo",
+            "package"       : "adlwo",
+            "visitor"       : true,
+            "srcdir"        : "antlr",
+            "files"         : ["AdlWo.g4"],
             "regexp" : {
                 "match"         : "github.com/antlr/antlr4/runtime/Go/antlr",
                 "replace"       : "github.com/wxio/goantlr"
