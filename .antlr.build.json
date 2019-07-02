@@ -18,7 +18,7 @@
             "language"      : "Go",
             "libdir"        : "go/internal/adllp",
             "outputdir"     : "go/internal/adlwi",
-            "package"       : "adlw1",
+            "package"       : "adlwi",
             "visitor"       : true,
             "srcdir"        : "antlr",
             "files"         : ["AdlWi.g4"],
