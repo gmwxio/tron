@@ -16,7 +16,7 @@ adl
     : module  EOF
 ;
 module
-    : annon* kw=ID name+=ID (DOT name+=ID)*  LCUR imports* top_level_statement* RCUR SEMI                           #ModuleStatement
+    : annon* kw=ID name+=ID (DOT name+=ID)*  LCUR imports* top_level_statement* RCUR SEMI  #ModuleStatement
 ;
 imports
     : kw=ID a+=ID (DOT a+=ID)+ SEMI                                     #ImportScopedName

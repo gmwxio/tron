@@ -27,6 +27,3 @@ func main() {
 		Parse().
 		RunFatal()
 }
-
-func (r root) Run() {
-}
