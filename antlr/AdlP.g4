@@ -23,7 +23,7 @@ imports
     | kw=ID a+=ID (DOT a+=ID)* DOT STAR SEMI                          #ImportModuleName
 ;
 annon
-    : AT a=ID jsonValue                                                   #LocalAnno
+    : AT a=ID jsonValue?                                                  #LocalAnno
     | a=LINE_DOC                                                          #DocAnno
 ;
 top_level_statement
