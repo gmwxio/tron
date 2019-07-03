@@ -2,8 +2,9 @@ parser grammar AdlP;
 
 tokens {
     DOWN, UP, ROOT, ERROR,
-    ADL, Module, ImportModule, ImportScopedName, Annotation, AnnotationNotScoped, AnnotationScoped,
-    Struct, Union, Newtype, Type, TypeParam, TypeExprPrimOrParam, TypeExprTypeExpr, TypeExprElem, Field,
+    ADL, Module, Import, ImportModule, ImportScopedName, Decl, ScopedName, DeclType, TypeDef, NewType, TypeExpr,
+    Annotation, AnnotationNotScoped, AnnotationScoped, Primitive,
+    Struct, Union, Newtype, Type, TypeParam, TypeExprSimple, TypeExprGeneric, Field,
     Json, JsonStr, JsonBool, JsonNull, JsonInt, JsonFloat, JsonArray, JsonObj,
     ModuleAnno, DeclAnno, FieldAnno
 }
@@ -43,11 +44,8 @@ typeParam
 //     : ID LCHEVR (ID|typeParamError) (COMMA (ID|typeParamError))* RCHEVR
 ;
 typeExpr
-    : b=ID                                                                           #TypeExprPrimOrParam
-    | b=ID LCHEVR typep+=typeExprElem (COMMA typep+=typeExprElem)* RCHEVR            #TypeExprTypeExpr
-;
-typeExprElem
-    : a=ID (LCHEVR typep+=typeExprElem (COMMA typep+=typeExprElem)* RCHEVR)?   #TypeExpressionElem
+    : b=ID                                                                   #TypeExprSimple
+    | b=ID LCHEVR typep+=typeExpr (COMMA typep+=typeExpr)* RCHEVR            #TypeExprGeneric
 ;
 soruBody
     : annon* typeExpr b=ID (EQ jsonValue)? SEMI                   #FieldStatement

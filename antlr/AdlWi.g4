@@ -40,12 +40,12 @@ annotation
     | tok=AnnotationScoped (DOWN jsonVal UP)?
 ;
 typeExpr_
-    : tok=TypeExprPrimOrParam
-    | tok=TypeExprTypeExpr (DOWN typeExprElem_+ UP)
+    : tok=TypeExprSimple                                #TypeExprSimple
+    | tok=TypeExprGeneric (DOWN typeExpr_+ UP)          #TypeExprGeneric
 ;
-typeExprElem_
-    : tok=TypeExprElem (DOWN typeExprElem_+ UP)?                         #TypeParams
-;
+// typeExprElem_
+//     : tok=TypeExprElem (DOWN typeExprElem_+ UP)?                         #TypeParams
+// ;
 jsonVal
     : tok=JsonStr                                          #JsonStr
     | tok=JsonBool                                         #JsonBool
