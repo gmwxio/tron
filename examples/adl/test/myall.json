@@ -1,0 +1,1960 @@
+{
+    "common": {
+        "name": "common",
+        "imports": [
+            {
+                "moduleName": "sys.annotations"
+            },
+            {
+                "scopedName": {
+                    "moduleName": "common.strings",
+                    "name": "StringNE"
+                }
+            }
+        ],
+        "decls": {
+            "GeographyGeoJson": {
+                "name": "GeographyGeoJson",
+                "version": "nothing",
+                "type_": {
+                    "newtype_": {
+                        "typeParams": [],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "String"
+                            },
+                            "parameters": []
+                        },
+                        "default": "nothing"
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "Postgres Geography type that is seralizaed in to GeoJson\n"
+                    }
+                ]
+            },
+            "Instant": {
+                "name": "Instant",
+                "version": "nothing",
+                "type_": {
+                    "newtype_": {
+                        "typeParams": [],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "Int64"
+                            },
+                            "parameters": []
+                        },
+                        "default": "nothing"
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "A instant in time, represented as milliseconds from\nthe epoch of \"1970-01-01T00:00:00Z\n"
+                    }
+                ]
+            },
+            "LocalDate": {
+                "name": "LocalDate",
+                "version": "nothing",
+                "type_": {
+                    "newtype_": {
+                        "typeParams": [],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "String"
+                            },
+                            "parameters": []
+                        },
+                        "default": {
+                            "just": "1970-01-01"
+                        }
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "A date in ISO8601 format\n"
+                    }
+                ]
+            },
+            "LocalDateTime": {
+                "name": "LocalDateTime",
+                "version": "nothing",
+                "type_": {
+                    "newtype_": {
+                        "typeParams": [],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "String"
+                            },
+                            "parameters": []
+                        },
+                        "default": {
+                            "just": "1970-01-01T00:00:00"
+                        }
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "A datetime in ISO8601 format\n"
+                    }
+                ]
+            },
+            "LocalTime": {
+                "name": "LocalTime",
+                "version": "nothing",
+                "type_": {
+                    "newtype_": {
+                        "typeParams": [],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "String"
+                            },
+                            "parameters": []
+                        },
+                        "default": {
+                            "just": "00:00:00"
+                        }
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "A time in ISO8601 format\n"
+                    }
+                ]
+            },
+            "Paginated": {
+                "name": "Paginated",
+                "version": "nothing",
+                "type_": {
+                    "struct_": {
+                        "typeParams": [
+                            "T"
+                        ],
+                        "fields": [
+                            {
+                                "name": "items",
+                                "serializedName": "items",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "primitive": "Vector"
+                                    },
+                                    "parameters": [
+                                        {
+                                            "typeRef": {
+                                                "typeParam": "T"
+                                            },
+                                            "parameters": []
+                                        }
+                                    ]
+                                },
+                                "default": "nothing",
+                                "annotations": [
+                                    {
+                                        "v1": {
+                                            "moduleName": "sys.annotations",
+                                            "name": "Doc"
+                                        },
+                                        "v2": "The paginated items\n"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "current_offset",
+                                "serializedName": "current_offset",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "primitive": "Int64"
+                                    },
+                                    "parameters": []
+                                },
+                                "default": "nothing",
+                                "annotations": [
+                                    {
+                                        "v1": {
+                                            "moduleName": "sys.annotations",
+                                            "name": "Doc"
+                                        },
+                                        "v2": "The offset used for this query\n"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "total_size",
+                                "serializedName": "total_size",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "primitive": "Int64"
+                                    },
+                                    "parameters": []
+                                },
+                                "default": "nothing",
+                                "annotations": [
+                                    {
+                                        "v1": {
+                                            "moduleName": "sys.annotations",
+                                            "name": "Doc"
+                                        },
+                                        "v2": "The size of the entire date set\n"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "A holder for paginated results\n"
+                    }
+                ]
+            },
+            "Timezone": {
+                "name": "Timezone",
+                "version": "nothing",
+                "type_": {
+                    "newtype_": {
+                        "typeParams": [],
+                        "typeExpr": {
+                            "typeRef": {
+                                "reference": {
+                                    "moduleName": "common.strings",
+                                    "name": "StringNE"
+                                }
+                            },
+                            "parameters": []
+                        },
+                        "default": "nothing"
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "An IANA timezone\n"
+                    }
+                ]
+            },
+            "Unit": {
+                "name": "Unit",
+                "version": "nothing",
+                "type_": {
+                    "struct_": {
+                        "typeParams": [],
+                        "fields": []
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "Empty Struct (Used mostly for Void RPC responses)\n"
+                    }
+                ]
+            }
+        },
+        "annotations": []
+    },
+    "common.db": {
+        "name": "common.db",
+        "imports": [
+            {
+                "moduleName": "sys.annotations"
+            }
+        ],
+        "decls": {
+            "DbColumnName": {
+                "name": "DbColumnName",
+                "version": "nothing",
+                "type_": {
+                    "type_": {
+                        "typeParams": [],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "String"
+                            },
+                            "parameters": []
+                        }
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "Field level annotation to override the name of the\ndatabase column.\n"
+                    }
+                ]
+            },
+            "DbColumnType": {
+                "name": "DbColumnType",
+                "version": "nothing",
+                "type_": {
+                    "type_": {
+                        "typeParams": [],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "String"
+                            },
+                            "parameters": []
+                        }
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "Field level annotation to override the type of the\ndatabase column.\n"
+                    }
+                ]
+            },
+            "DbKey": {
+                "name": "DbKey",
+                "version": "nothing",
+                "type_": {
+                    "newtype_": {
+                        "typeParams": [
+                            "T"
+                        ],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "String"
+                            },
+                            "parameters": []
+                        },
+                        "default": "nothing"
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "A reference for a database stored value, referenced by a\nstring primary key.\n"
+                    }
+                ]
+            },
+            "DbTable": {
+                "name": "DbTable",
+                "version": "nothing",
+                "type_": {
+                    "struct_": {
+                        "typeParams": [],
+                        "fields": [
+                            {
+                                "name": "tableName",
+                                "serializedName": "tableName",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "primitive": "String"
+                                    },
+                                    "parameters": []
+                                },
+                                "default": {
+                                    "just": ""
+                                },
+                                "annotations": []
+                            },
+                            {
+                                "name": "withIdPrimaryKey",
+                                "serializedName": "withIdPrimaryKey",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "primitive": "Bool"
+                                    },
+                                    "parameters": []
+                                },
+                                "default": {
+                                    "just": false
+                                },
+                                "annotations": []
+                            },
+                            {
+                                "name": "withPrimaryKey",
+                                "serializedName": "withPrimaryKey",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "primitive": "Vector"
+                                    },
+                                    "parameters": [
+                                        {
+                                            "typeRef": {
+                                                "primitive": "String"
+                                            },
+                                            "parameters": []
+                                        }
+                                    ]
+                                },
+                                "default": {
+                                    "just": []
+                                },
+                                "annotations": []
+                            },
+                            {
+                                "name": "indexes",
+                                "serializedName": "indexes",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "primitive": "Vector"
+                                    },
+                                    "parameters": [
+                                        {
+                                            "typeRef": {
+                                                "primitive": "Vector"
+                                            },
+                                            "parameters": [
+                                                {
+                                                    "typeRef": {
+                                                        "primitive": "String"
+                                                    },
+                                                    "parameters": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "default": {
+                                    "just": []
+                                },
+                                "annotations": []
+                            },
+                            {
+                                "name": "uniquenessConstraints",
+                                "serializedName": "uniquenessConstraints",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "primitive": "Vector"
+                                    },
+                                    "parameters": [
+                                        {
+                                            "typeRef": {
+                                                "primitive": "Vector"
+                                            },
+                                            "parameters": [
+                                                {
+                                                    "typeRef": {
+                                                        "primitive": "String"
+                                                    },
+                                                    "parameters": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "default": {
+                                    "just": []
+                                },
+                                "annotations": []
+                            }
+                        ]
+                    }
+                },
+                "annotations": []
+            },
+            "WithDbId": {
+                "name": "WithDbId",
+                "version": "nothing",
+                "type_": {
+                    "struct_": {
+                        "typeParams": [
+                            "T"
+                        ],
+                        "fields": [
+                            {
+                                "name": "id",
+                                "serializedName": "id",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "reference": {
+                                            "moduleName": "",
+                                            "name": "DbKey"
+                                        }
+                                    },
+                                    "parameters": [
+                                        {
+                                            "typeRef": {
+                                                "typeParam": "T"
+                                            },
+                                            "parameters": []
+                                        }
+                                    ]
+                                },
+                                "default": "nothing",
+                                "annotations": []
+                            },
+                            {
+                                "name": "value",
+                                "serializedName": "value",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "typeParam": "T"
+                                    },
+                                    "parameters": []
+                                },
+                                "default": "nothing",
+                                "annotations": []
+                            }
+                        ]
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "A value of type T along with a unique db identifier\n"
+                    }
+                ]
+            }
+        },
+        "annotations": []
+    },
+    "common.http": {
+        "name": "common.http",
+        "imports": [
+            {
+                "moduleName": "sys.annotations"
+            }
+        ],
+        "decls": {
+            "AuthHeader": {
+                "name": "AuthHeader",
+                "version": "nothing",
+                "type_": {
+                    "type_": {
+                        "typeParams": [],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "Void"
+                            },
+                            "parameters": []
+                        }
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "An annotation indicating that a request requires an Authorization http header\n"
+                    }
+                ]
+            },
+            "Get": {
+                "name": "Get",
+                "version": "nothing",
+                "type_": {
+                    "type_": {
+                        "typeParams": [
+                            "I"
+                        ],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "Void"
+                            },
+                            "parameters": []
+                        }
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "A marker type to associate the output response\ntype for an http Get request.\n"
+                    }
+                ]
+            },
+            "Idempotent": {
+                "name": "Idempotent",
+                "version": "nothing",
+                "type_": {
+                    "type_": {
+                        "typeParams": [],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "Void"
+                            },
+                            "parameters": []
+                        }
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "An annotation indicating that a request is idemponent, and can hence be safely\nretried on failure.\n"
+                    }
+                ]
+            },
+            "IdempotentWithKey": {
+                "name": "IdempotentWithKey",
+                "version": "nothing",
+                "type_": {
+                    "type_": {
+                        "typeParams": [],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "Void"
+                            },
+                            "parameters": []
+                        }
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "An annotation indicating that a request can be made idempotent if the caller\nprovides an Idempotency-Key header with a unique value.\n"
+                    }
+                ]
+            },
+            "Path": {
+                "name": "Path",
+                "version": "nothing",
+                "type_": {
+                    "type_": {
+                        "typeParams": [],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "String"
+                            },
+                            "parameters": []
+                        }
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "An annotation indicating the URL path for a request\n"
+                    }
+                ]
+            },
+            "Post": {
+                "name": "Post",
+                "version": "nothing",
+                "type_": {
+                    "type_": {
+                        "typeParams": [
+                            "I",
+                            "O"
+                        ],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "Void"
+                            },
+                            "parameters": []
+                        }
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "A marker type to associate the input request and output response\ntypes for an http post request.\n"
+                    }
+                ]
+            },
+            "Put": {
+                "name": "Put",
+                "version": "nothing",
+                "type_": {
+                    "type_": {
+                        "typeParams": [
+                            "I",
+                            "O"
+                        ],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "Void"
+                            },
+                            "parameters": []
+                        }
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "A marker type to associate the input request and output response\ntypes for an http put request.\n"
+                    }
+                ]
+            }
+        },
+        "annotations": []
+    },
+    "common.strings": {
+        "name": "common.strings",
+        "imports": [
+            {
+                "moduleName": "sys.annotations"
+            },
+            {
+                "scopedName": {
+                    "moduleName": "common.ui",
+                    "name": "ValidRegex"
+                }
+            }
+        ],
+        "decls": {
+            "StringANH": {
+                "name": "StringANH",
+                "version": "nothing",
+                "type_": {
+                    "type_": {
+                        "typeParams": [],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "String"
+                            },
+                            "parameters": []
+                        }
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "common.ui",
+                            "name": "ValidRegex"
+                        },
+                        "v2": {
+                            "description": "alphanumeric",
+                            "regex": "^[A-Za-z][A-Za-z0-9-]*$"
+                        }
+                    },
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "An alphanumeric string, with hyphens for separation.\n"
+                    }
+                ]
+            },
+            "StringML": {
+                "name": "StringML",
+                "version": "nothing",
+                "type_": {
+                    "type_": {
+                        "typeParams": [],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "String"
+                            },
+                            "parameters": []
+                        }
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "A multi line, free-form text string\n"
+                    }
+                ]
+            },
+            "StringNE": {
+                "name": "StringNE",
+                "version": "nothing",
+                "type_": {
+                    "type_": {
+                        "typeParams": [],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "String"
+                            },
+                            "parameters": []
+                        }
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "common.ui",
+                            "name": "ValidRegex"
+                        },
+                        "v2": {
+                            "description": "non empty",
+                            "regex": "^.*\\S+.*$"
+                        }
+                    },
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "A string that isn't empty, and isn't only whitespace.\n"
+                    }
+                ]
+            }
+        },
+        "annotations": [
+            {
+                "v1": {
+                    "moduleName": "sys.annotations",
+                    "name": "Doc"
+                },
+                "v2": "Some string type aliases, with attributes to derive UI validation\n"
+            }
+        ]
+    },
+    "common.ui": {
+        "name": "common.ui",
+        "imports": [
+            {
+                "moduleName": "sys.annotations"
+            },
+            {
+                "scopedName": {
+                    "moduleName": "sys.types",
+                    "name": "Pair"
+                }
+            }
+        ],
+        "decls": {
+            "FormGroupKey": {
+                "name": "FormGroupKey",
+                "version": "nothing",
+                "type_": {
+                    "type_": {
+                        "typeParams": [],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "String"
+                            },
+                            "parameters": []
+                        }
+                    }
+                },
+                "annotations": []
+            },
+            "FormGroups": {
+                "name": "FormGroups",
+                "version": "nothing",
+                "type_": {
+                    "struct_": {
+                        "typeParams": [],
+                        "fields": [
+                            {
+                                "name": "defaultKey",
+                                "serializedName": "defaultKey",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "reference": {
+                                            "moduleName": "",
+                                            "name": "FormGroupKey"
+                                        }
+                                    },
+                                    "parameters": []
+                                },
+                                "default": "nothing",
+                                "annotations": []
+                            },
+                            {
+                                "name": "labels",
+                                "serializedName": "labels",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "primitive": "Vector"
+                                    },
+                                    "parameters": [
+                                        {
+                                            "typeRef": {
+                                                "reference": {
+                                                    "moduleName": "sys.types",
+                                                    "name": "Pair"
+                                                }
+                                            },
+                                            "parameters": [
+                                                {
+                                                    "typeRef": {
+                                                        "reference": {
+                                                            "moduleName": "",
+                                                            "name": "FormGroupKey"
+                                                        }
+                                                    },
+                                                    "parameters": []
+                                                },
+                                                {
+                                                    "typeRef": {
+                                                        "primitive": "String"
+                                                    },
+                                                    "parameters": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "default": "nothing",
+                                "annotations": []
+                            }
+                        ]
+                    }
+                },
+                "annotations": []
+            },
+            "FormLabel": {
+                "name": "FormLabel",
+                "version": "nothing",
+                "type_": {
+                    "type_": {
+                        "typeParams": [],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "String"
+                            },
+                            "parameters": []
+                        }
+                    }
+                },
+                "annotations": []
+            },
+            "ValidRegex": {
+                "name": "ValidRegex",
+                "version": "nothing",
+                "type_": {
+                    "struct_": {
+                        "typeParams": [],
+                        "fields": [
+                            {
+                                "name": "regex",
+                                "serializedName": "regex",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "primitive": "String"
+                                    },
+                                    "parameters": []
+                                },
+                                "default": "nothing",
+                                "annotations": [
+                                    {
+                                        "v1": {
+                                            "moduleName": "sys.annotations",
+                                            "name": "Doc"
+                                        },
+                                        "v2": "The regexp that must be matched\n"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "description",
+                                "serializedName": "description",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "primitive": "String"
+                                    },
+                                    "parameters": []
+                                },
+                                "default": "nothing",
+                                "annotations": [
+                                    {
+                                        "v1": {
+                                            "moduleName": "sys.annotations",
+                                            "name": "Doc"
+                                        },
+                                        "v2": "A (short) user readable string describing the\nexpected text.\n"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "An field/type alias annotation to constrain the\nvalues allowed by a string to a regular expression\n"
+                    }
+                ]
+            },
+            "ValidValues": {
+                "name": "ValidValues",
+                "version": "nothing",
+                "type_": {
+                    "struct_": {
+                        "typeParams": [],
+                        "fields": [
+                            {
+                                "name": "values",
+                                "serializedName": "values",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "primitive": "Vector"
+                                    },
+                                    "parameters": [
+                                        {
+                                            "typeRef": {
+                                                "primitive": "String"
+                                            },
+                                            "parameters": []
+                                        }
+                                    ]
+                                },
+                                "default": "nothing",
+                                "annotations": [
+                                    {
+                                        "v1": {
+                                            "moduleName": "sys.annotations",
+                                            "name": "Doc"
+                                        },
+                                        "v2": "The allowed values\n"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "description",
+                                "serializedName": "description",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "primitive": "String"
+                                    },
+                                    "parameters": []
+                                },
+                                "default": "nothing",
+                                "annotations": [
+                                    {
+                                        "v1": {
+                                            "moduleName": "sys.annotations",
+                                            "name": "Doc"
+                                        },
+                                        "v2": "A (short) user readable string describing the\nexpected text.\n"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "An field/type alias annotation to constrain the\nvalues allowed by a string to the enumerated values\n"
+                    }
+                ]
+            }
+        },
+        "annotations": []
+    },
+    "helix.protoapp.requests": {
+        "name": "helix.protoapp.requests",
+        "imports": [
+            {
+                "moduleName": "sys.annotations"
+            },
+            {
+                "moduleName": "common.http"
+            },
+            {
+                "moduleName": "common"
+            },
+            {
+                "scopedName": {
+                    "moduleName": "common.db",
+                    "name": "DbTable"
+                }
+            },
+            {
+                "moduleName": "sys.types"
+            }
+        ],
+        "decls": {
+            "A": {
+                "name": "A",
+                "version": "nothing",
+                "type_": {
+                    "struct_": {
+                        "typeParams": [],
+                        "fields": [
+                            {
+                                "name": "a",
+                                "serializedName": "a",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "primitive": "String"
+                                    },
+                                    "parameters": []
+                                },
+                                "default": "nothing",
+                                "annotations": []
+                            }
+                        ]
+                    }
+                },
+                "annotations": []
+            },
+            "B": {
+                "name": "B",
+                "version": "nothing",
+                "type_": {
+                    "struct_": {
+                        "typeParams": [],
+                        "fields": [
+                            {
+                                "name": "b",
+                                "serializedName": "b",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "primitive": "Int32"
+                                    },
+                                    "parameters": []
+                                },
+                                "default": "nothing",
+                                "annotations": []
+                            }
+                        ]
+                    }
+                },
+                "annotations": []
+            },
+            "Const": {
+                "name": "Const",
+                "version": "nothing",
+                "type_": {
+                    "struct_": {
+                        "typeParams": [],
+                        "fields": []
+                    }
+                },
+                "annotations": []
+            },
+            "CurrentTime": {
+                "name": "CurrentTime",
+                "version": "nothing",
+                "type_": {
+                    "type_": {
+                        "typeParams": [],
+                        "typeExpr": {
+                            "typeRef": {
+                                "reference": {
+                                    "moduleName": "common.http",
+                                    "name": "Get"
+                                }
+                            },
+                            "parameters": [
+                                {
+                                    "typeRef": {
+                                        "reference": {
+                                            "moduleName": "common",
+                                            "name": "Instant"
+                                        }
+                                    },
+                                    "parameters": []
+                                }
+                            ]
+                        }
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "common.http",
+                            "name": "Path"
+                        },
+                        "v2": "/debug/time"
+                    },
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "docontype\n"
+                    }
+                ]
+            },
+            "DummyException": {
+                "name": "DummyException",
+                "version": "nothing",
+                "type_": {
+                    "newtype_": {
+                        "typeParams": [],
+                        "typeExpr": {
+                            "typeRef": {
+                                "reference": {
+                                    "moduleName": "common.http",
+                                    "name": "Post"
+                                }
+                            },
+                            "parameters": [
+                                {
+                                    "typeRef": {
+                                        "primitive": "String"
+                                    },
+                                    "parameters": []
+                                },
+                                {
+                                    "typeRef": {
+                                        "reference": {
+                                            "moduleName": "common",
+                                            "name": "Unit"
+                                        }
+                                    },
+                                    "parameters": []
+                                }
+                            ]
+                        },
+                        "default": "nothing"
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "common.http",
+                            "name": "Path"
+                        },
+                        "v2": "/debug/dummy-exception"
+                    },
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "doconnewtype\n"
+                    }
+                ]
+            },
+            "Hello": {
+                "name": "Hello",
+                "version": "nothing",
+                "type_": {
+                    "type_": {
+                        "typeParams": [
+                            "A"
+                        ],
+                        "typeExpr": {
+                            "typeRef": {
+                                "reference": {
+                                    "moduleName": "common.http",
+                                    "name": "Post"
+                                }
+                            },
+                            "parameters": [
+                                {
+                                    "typeRef": {
+                                        "reference": {
+                                            "moduleName": "",
+                                            "name": "HelloReq"
+                                        }
+                                    },
+                                    "parameters": []
+                                },
+                                {
+                                    "typeRef": {
+                                        "reference": {
+                                            "moduleName": "",
+                                            "name": "HelloResp"
+                                        }
+                                    },
+                                    "parameters": [
+                                        {
+                                            "typeRef": {
+                                                "primitive": "Vector"
+                                            },
+                                            "parameters": [
+                                                {
+                                                    "typeRef": {
+                                                        "primitive": "Vector"
+                                                    },
+                                                    "parameters": [
+                                                        {
+                                                            "typeRef": {
+                                                                "primitive": "Vector"
+                                                            },
+                                                            "parameters": [
+                                                                {
+                                                                    "typeRef": {
+                                                                        "reference": {
+                                                                            "moduleName": "",
+                                                                            "name": "A"
+                                                                        }
+                                                                    },
+                                                                    "parameters": []
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "typeRef": {
+                                                "primitive": "Int32"
+                                            },
+                                            "parameters": []
+                                        },
+                                        {
+                                            "typeRef": {
+                                                "primitive": "Float"
+                                            },
+                                            "parameters": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "common.http",
+                            "name": "Path"
+                        },
+                        "v2": "localanno"
+                    },
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "doccmt\n"
+                    }
+                ]
+            },
+            "HelloReq": {
+                "name": "HelloReq",
+                "version": "nothing",
+                "type_": {
+                    "struct_": {
+                        "typeParams": [],
+                        "fields": [
+                            {
+                                "name": "name",
+                                "serializedName": "name",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "primitive": "String"
+                                    },
+                                    "parameters": []
+                                },
+                                "default": "nothing",
+                                "annotations": [
+                                    {
+                                        "v1": {
+                                            "moduleName": "common.http",
+                                            "name": "Path"
+                                        },
+                                        "v2": "field anno"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "annotations": [
+                    {
+                        "v1": {
+                            "moduleName": "",
+                            "name": "SA"
+                        },
+                        "v2": {
+                            "a": "b"
+                        }
+                    },
+                    {
+                        "v1": {
+                            "moduleName": "common.db",
+                            "name": "DbTable"
+                        },
+                        "v2": {
+                            "indexes": [
+                                [
+                                    "username"
+                                ]
+                            ],
+                            "withIdPrimaryKey": true
+                        }
+                    },
+                    {
+                        "v1": {
+                            "moduleName": "sys.annotations",
+                            "name": "Doc"
+                        },
+                        "v2": "doconstr\n"
+                    }
+                ]
+            },
+            "HelloResp": {
+                "name": "HelloResp",
+                "version": "nothing",
+                "type_": {
+                    "struct_": {
+                        "typeParams": [
+                            "A",
+                            "B",
+                            "C"
+                        ],
+                        "fields": []
+                    }
+                },
+                "annotations": []
+            },
+            "Literal": {
+                "name": "Literal",
+                "version": "nothing",
+                "type_": {
+                    "type_": {
+                        "typeParams": [
+                            "T"
+                        ],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "StringMap"
+                            },
+                            "parameters": [
+                                {
+                                    "typeRef": {
+                                        "typeParam": "T"
+                                    },
+                                    "parameters": []
+                                }
+                            ]
+                        }
+                    }
+                },
+                "annotations": []
+            },
+            "LoginResp": {
+                "name": "LoginResp",
+                "version": "nothing",
+                "type_": {
+                    "union_": {
+                        "typeParams": [
+                            "T"
+                        ],
+                        "fields": [
+                            {
+                                "name": "accessToken",
+                                "serializedName": "accessToken",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "typeParam": "T"
+                                    },
+                                    "parameters": []
+                                },
+                                "default": "nothing",
+                                "annotations": [
+                                    {
+                                        "v1": {
+                                            "moduleName": "",
+                                            "name": "SA"
+                                        },
+                                        "v2": {
+                                            "a": "b"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "annotations": []
+            },
+            "MyConfig": {
+                "name": "MyConfig",
+                "version": "nothing",
+                "type_": {
+                    "union_": {
+                        "typeParams": [],
+                        "fields": [
+                            {
+                                "name": "a",
+                                "serializedName": "a",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "reference": {
+                                            "moduleName": "",
+                                            "name": "A"
+                                        }
+                                    },
+                                    "parameters": []
+                                },
+                                "default": "nothing",
+                                "annotations": []
+                            },
+                            {
+                                "name": "b",
+                                "serializedName": "b",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "reference": {
+                                            "moduleName": "",
+                                            "name": "B"
+                                        }
+                                    },
+                                    "parameters": []
+                                },
+                                "default": "nothing",
+                                "annotations": []
+                            }
+                        ]
+                    }
+                },
+                "annotations": []
+            },
+            "MyConfigMap": {
+                "name": "MyConfigMap",
+                "version": "nothing",
+                "type_": {
+                    "type_": {
+                        "typeParams": [],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "StringMap"
+                            },
+                            "parameters": [
+                                {
+                                    "typeRef": {
+                                        "reference": {
+                                            "moduleName": "",
+                                            "name": "MyConfig"
+                                        }
+                                    },
+                                    "parameters": []
+                                }
+                            ]
+                        }
+                    }
+                },
+                "annotations": []
+            },
+            "SA": {
+                "name": "SA",
+                "version": "nothing",
+                "type_": {
+                    "struct_": {
+                        "typeParams": [],
+                        "fields": [
+                            {
+                                "name": "a",
+                                "serializedName": "a",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "primitive": "String"
+                                    },
+                                    "parameters": []
+                                },
+                                "default": "nothing",
+                                "annotations": []
+                            }
+                        ]
+                    }
+                },
+                "annotations": []
+            },
+            "StrLiteral": {
+                "name": "StrLiteral",
+                "version": "nothing",
+                "type_": {
+                    "type_": {
+                        "typeParams": [],
+                        "typeExpr": {
+                            "typeRef": {
+                                "reference": {
+                                    "moduleName": "",
+                                    "name": "Literal"
+                                }
+                            },
+                            "parameters": [
+                                {
+                                    "typeRef": {
+                                        "primitive": "String"
+                                    },
+                                    "parameters": []
+                                }
+                            ]
+                        }
+                    }
+                },
+                "annotations": []
+            }
+        },
+        "annotations": [
+            {
+                "v1": {
+                    "moduleName": "",
+                    "name": "MyConfig"
+                },
+                "v2": {
+                    "a": {
+                        "a": "mystring"
+                    }
+                }
+            },
+            {
+                "v1": {
+                    "moduleName": "",
+                    "name": "MyConfigMap"
+                },
+                "v2": {
+                    "a a": {
+                        "a": {
+                            "a": "hw"
+                        }
+                    },
+                    "a b": {
+                        "b": {
+                            "b": 10
+                        }
+                    }
+                }
+            },
+            {
+                "v1": {
+                    "moduleName": "",
+                    "name": "StrLiteral"
+                },
+                "v2": {
+                    "a": "b"
+                }
+            },
+            {
+                "v1": {
+                    "moduleName": "common.http",
+                    "name": "Path"
+                },
+                "v2": "mod anno str"
+            }
+        ]
+    },
+    "sys.annotations": {
+        "name": "sys.annotations",
+        "imports": [],
+        "decls": {
+            "CustomSerialization": {
+                "name": "CustomSerialization",
+                "version": "nothing",
+                "type_": {
+                    "type_": {
+                        "typeParams": [],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "Bool"
+                            },
+                            "parameters": []
+                        }
+                    }
+                },
+                "annotations": []
+            },
+            "Doc": {
+                "name": "Doc",
+                "version": "nothing",
+                "type_": {
+                    "type_": {
+                        "typeParams": [],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "String"
+                            },
+                            "parameters": []
+                        }
+                    }
+                },
+                "annotations": []
+            },
+            "SerializedName": {
+                "name": "SerializedName",
+                "version": "nothing",
+                "type_": {
+                    "type_": {
+                        "typeParams": [],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "String"
+                            },
+                            "parameters": []
+                        }
+                    }
+                },
+                "annotations": []
+            }
+        },
+        "annotations": []
+    },
+    "sys.types": {
+        "name": "sys.types",
+        "imports": [
+            {
+                "moduleName": "sys.annotations"
+            }
+        ],
+        "decls": {
+            "Either": {
+                "name": "Either",
+                "version": "nothing",
+                "type_": {
+                    "union_": {
+                        "typeParams": [
+                            "T1",
+                            "T2"
+                        ],
+                        "fields": [
+                            {
+                                "name": "left",
+                                "serializedName": "left",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "typeParam": "T1"
+                                    },
+                                    "parameters": []
+                                },
+                                "default": "nothing",
+                                "annotations": []
+                            },
+                            {
+                                "name": "right",
+                                "serializedName": "right",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "typeParam": "T2"
+                                    },
+                                    "parameters": []
+                                },
+                                "default": "nothing",
+                                "annotations": []
+                            }
+                        ]
+                    }
+                },
+                "annotations": []
+            },
+            "Error": {
+                "name": "Error",
+                "version": "nothing",
+                "type_": {
+                    "union_": {
+                        "typeParams": [
+                            "T"
+                        ],
+                        "fields": [
+                            {
+                                "name": "value",
+                                "serializedName": "value",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "typeParam": "T"
+                                    },
+                                    "parameters": []
+                                },
+                                "default": "nothing",
+                                "annotations": []
+                            },
+                            {
+                                "name": "error",
+                                "serializedName": "error",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "primitive": "String"
+                                    },
+                                    "parameters": []
+                                },
+                                "default": "nothing",
+                                "annotations": []
+                            }
+                        ]
+                    }
+                },
+                "annotations": []
+            },
+            "Map": {
+                "name": "Map",
+                "version": "nothing",
+                "type_": {
+                    "newtype_": {
+                        "typeParams": [
+                            "K",
+                            "V"
+                        ],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "Vector"
+                            },
+                            "parameters": [
+                                {
+                                    "typeRef": {
+                                        "reference": {
+                                            "moduleName": "",
+                                            "name": "Pair"
+                                        }
+                                    },
+                                    "parameters": [
+                                        {
+                                            "typeRef": {
+                                                "typeParam": "K"
+                                            },
+                                            "parameters": []
+                                        },
+                                        {
+                                            "typeRef": {
+                                                "typeParam": "V"
+                                            },
+                                            "parameters": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "default": "nothing"
+                    }
+                },
+                "annotations": []
+            },
+            "Maybe": {
+                "name": "Maybe",
+                "version": "nothing",
+                "type_": {
+                    "union_": {
+                        "typeParams": [
+                            "T"
+                        ],
+                        "fields": [
+                            {
+                                "name": "nothing",
+                                "serializedName": "nothing",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "primitive": "Void"
+                                    },
+                                    "parameters": []
+                                },
+                                "default": "nothing",
+                                "annotations": []
+                            },
+                            {
+                                "name": "just",
+                                "serializedName": "just",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "typeParam": "T"
+                                    },
+                                    "parameters": []
+                                },
+                                "default": "nothing",
+                                "annotations": []
+                            }
+                        ]
+                    }
+                },
+                "annotations": []
+            },
+            "Pair": {
+                "name": "Pair",
+                "version": "nothing",
+                "type_": {
+                    "struct_": {
+                        "typeParams": [
+                            "T1",
+                            "T2"
+                        ],
+                        "fields": [
+                            {
+                                "name": "v1",
+                                "serializedName": "v1",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "typeParam": "T1"
+                                    },
+                                    "parameters": []
+                                },
+                                "default": "nothing",
+                                "annotations": []
+                            },
+                            {
+                                "name": "v2",
+                                "serializedName": "v2",
+                                "typeExpr": {
+                                    "typeRef": {
+                                        "typeParam": "T2"
+                                    },
+                                    "parameters": []
+                                },
+                                "default": "nothing",
+                                "annotations": []
+                            }
+                        ]
+                    }
+                },
+                "annotations": []
+            },
+            "Set": {
+                "name": "Set",
+                "version": "nothing",
+                "type_": {
+                    "newtype_": {
+                        "typeParams": [
+                            "T"
+                        ],
+                        "typeExpr": {
+                            "typeRef": {
+                                "primitive": "Vector"
+                            },
+                            "parameters": [
+                                {
+                                    "typeRef": {
+                                        "typeParam": "T"
+                                    },
+                                    "parameters": []
+                                }
+                            ]
+                        },
+                        "default": "nothing"
+                    }
+                },
+                "annotations": []
+            }
+        },
+        "annotations": []
+    }
+}

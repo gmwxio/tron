@@ -1,0 +1,121 @@
+module projectk.layout {
+
+struct Container {
+    Display display;
+    Vector<Container> items;
+};
+
+union Display {
+    Flex flex;
+};
+
+struct Flex {
+    Direction direction = { "row" : null };
+    Wrap warp = { "nowrap" : null };
+    JustifyContent justifyContent = { "start" : null };
+    AlignItems alignItems = { "start" : null };
+    AlignContent alignContent = { "start" : null };
+    FlexItem item;
+};
+
+union Item {
+    FlexItem flex;
+};
+
+union Direction {
+    Void row;
+    Void rowReverse;
+    Void column;
+    Void columnReverse;
+};
+
+union Wrap {
+    Void nowrap;
+    Void wrap;
+    Void wrapReverse;
+};
+
+/// Main Axis
+union JustifyContent {
+    Void start;
+    Void end;
+    Void center;
+    Void spaceBetween;
+    Void spaceAround;
+    Void spaceEvenly;
+};
+
+/// Cross Axis
+union AlignItems {
+    Void stretch;
+    Void start;
+    Void end;
+    Void center;
+    Void baseline;
+};
+
+/// Cross Axis
+/// This aligns a flex container's lines within when there is extra space in 
+/// the cross-axis, similar to how justify-content aligns individual items 
+/// within the main-axis.
+/// Note: this property has no effect when there is only one line of flex items.
+union AlignContent {
+    Void start;
+    Void end;
+    Void center;
+    Void spaceBetween;
+    Void spaceAround;
+    Void stretch;
+};
+
+struct FlexItem {
+    Int32 order = 0;
+    Int32 grow = 1;
+    Int32 shrink = 1;
+    AlignSelf alignSelf = { "auto" : null };
+
+    Color background = { "tomato" : null };
+    Size padding = { "px" : 5 };
+    Size width = { "px" : 200 };
+    Size height = { "px" : 150 };
+    BoxSize margin = { "top" : { "px" : 10 } };
+  
+    Size lineHeight = { "px" : 150 };
+    Color color = { "white" : null };
+    FontWeight fontWeight = { "bold" : null };
+    Size fontSize = { "em" : 3 };
+//    text-align: center;    
+};
+
+union AlignSelf {
+    Void auto;
+    Void start;
+    Void end;
+    Void center;
+    Void baseline; 
+    Void stretch;
+};
+
+union Color {
+    Void white;
+    Void tomato;
+};
+
+union Size {
+    Int32 px;
+    Int32 em;
+};
+
+struct BoxSize {
+    Size top = { "px" : 0 };
+    Size bottom = { "px" : 0 };
+    Size left = { "px" : 0 };
+    Size right = { "px" : 0 };
+};
+
+union FontWeight {
+    Void normal;
+    Void bold;
+};
+
+};

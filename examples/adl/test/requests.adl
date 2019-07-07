@@ -1,0 +1,94 @@
+module helix.protoapp.requests {
+
+import common.*;
+import common.db.DbKey;
+import common.db.WithDbId;
+import common.tabular.TableQuery;
+import common.Paginated;
+import common.Unit;
+import common.http.Post;
+import common.http.Get;
+import common.http.Path;
+import common.strings.StringNE;
+
+import helix.protoapp.db.AppUser;
+
+/// Returns a custom friendly greeting response
+
+@Path "/protected/hello"
+type Hello = Post<HelloReq, HelloResp>;
+
+struct HelloReq {
+  String name;
+};
+
+struct HelloResp<A,B,C> {
+  Instant time;
+  String message;
+};
+
+/// Returns the current time
+@Path "/debug/time"
+type CurrentTime = Get<Instant>;
+
+/// Throws a dummy exception with a public message
+
+@Path "/debug/dummy-exception"
+type DummyException = Post<String, Unit>;
+
+
+/// Details for a user
+struct UserReq {
+  String username;
+  String fullname;
+  String email;
+  String password;
+};
+
+/// Create a new user
+
+@Path "/users/create"
+type CreateUser = Post<UserReq, DbKey<AppUser>>;
+
+
+/// Update an existing user
+
+@Path "/users/update"
+type UpdateUser = Post<WithDbId<UserReq>, Unit>;
+
+
+/// Delete an existing user
+
+@Path "/users/delete"
+type DeleteUser = Post<DbKey<AppUser>, Unit>;
+
+
+/// Query existing users sorted and filters according to the
+/// TableQuery request.
+
+@Path "/users/query"
+type QueryUsers = Post<TableQuery, Paginated<WithDbId<AppUser>>>;
+
+
+/// Logs in
+
+struct LoginReq {
+  StringNE username;
+  StringNE password;
+};
+
+union LoginResp {
+  StringNE accessToken;
+  Void invalidCredentials;
+};
+
+@Path "/login"
+type Login = Post<LoginReq, LoginResp>;
+
+/// Gets the logged in user details
+
+// NOTE: Fails with 401 if the token is invalid or user does not exist
+@Path "/protected/whoami"
+type WhoAmI = Get<WithDbId<AppUser>>;
+
+};

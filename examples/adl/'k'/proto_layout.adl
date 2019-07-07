@@ -1,0 +1,16 @@
+module proto.layout {
+
+import projectk.layout.*;
+
+annotation Container {
+    "display" : { "flex" : {
+        "item" : {
+        }
+    } },
+    "items" : [ {
+        "display" : { "flex" : { "item" : {} } },
+        "items" : []
+    } ]
+};
+
+};
