@@ -4,7 +4,9 @@ import projectk.layout.*;
 
 annotation Container {
     "display" : { "flex" : {
+        "direction" : "column",
         "item" : {
+            "padding" : { "px" : 10 }
         }
     } },
     "items" : [ {

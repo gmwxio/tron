@@ -1,0 +1,6 @@
+module projectk.generate {
+
+struct SkipDefaultInGenerated {
+};
+
+};

@@ -1,5 +1,7 @@
 module projectk.layout {
 
+import projectk.generate.*;
+
 struct Container {
     Display display;
     Vector<Container> items;
@@ -10,11 +12,12 @@ union Display {
 };
 
 struct Flex {
-    Direction direction = { "row" : null };
-    Wrap warp = { "nowrap" : null };
-    JustifyContent justifyContent = { "start" : null };
-    AlignItems alignItems = { "start" : null };
-    AlignContent alignContent = { "start" : null };
+    @SkipDefaultInGenerated {}
+    Direction direction = "row";
+    Wrap warp = "nowrap";
+    JustifyContent justifyContent = "start";
+    AlignItems alignItems = "start";
+    AlignContent alignContent = "start";
     FlexItem item;
 };
 
@@ -72,17 +75,17 @@ struct FlexItem {
     Int32 order = 0;
     Int32 grow = 1;
     Int32 shrink = 1;
-    AlignSelf alignSelf = { "auto" : null };
+    AlignSelf alignSelf = "auto";
 
-    Color background = { "tomato" : null };
+    Color background = "tomato";
     Size padding = { "px" : 5 };
     Size width = { "px" : 200 };
     Size height = { "px" : 150 };
     BoxSize margin = { "top" : { "px" : 10 } };
   
     Size lineHeight = { "px" : 150 };
-    Color color = { "white" : null };
-    FontWeight fontWeight = { "bold" : null };
+    Color color = "white";
+    FontWeight fontWeight = "bold";
     Size fontSize = { "em" : 3 };
 //    text-align: center;    
 };
