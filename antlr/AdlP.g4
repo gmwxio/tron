@@ -5,7 +5,7 @@ tokens {
     ADL, Module, Import, ImportModule, ImportScopedName, Decl, ScopedName, DeclType, TypeDef, NewType, TypeExpr,
     Annotation, AnnotationNotScoped, AnnotationScoped, Primitive,
     Struct, Union, Newtype, Type, TypeParam, TypeExprSimple, TypeExprGeneric, Field,
-    Json, JsonStr, JsonBool, JsonNull, JsonInt, JsonFloat, JsonArray, JsonObj,
+    Json, JsonStr, JsonBool, JsonNull, JsonInt, JsonFloat, JsonArray, JsonObj, JsonObjKey,
     ModuleAnno, DeclAnno, FieldAnno
 }
 
@@ -56,5 +56,8 @@ jsonValue
     | n=INT                                                               #NumberStatement
     | f=FLT                                                               #FloatStatement
     | LSQ (jv+=jsonValue (COMMA jv+=jsonValue)*)? RSQ                           #ArrayStatement
-    | LCUR (k+=STR COLON v+=jsonValue (COMMA k+=STR COLON v+=jsonValue)*)? RCUR     #ObjStatement
+    | LCUR (jsonObj (COMMA jsonObj)*)? RCUR                 #ObjStatement
+;
+jsonObj
+    : k=STR COLON v=jsonValue       #JsonObjStatement
 ;

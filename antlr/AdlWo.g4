@@ -45,5 +45,5 @@ jsonVal
     | tok=JsonInt                                          #JsonInt
     | tok=JsonFloat                                        #JsonFloat
     | tok=JsonArray (DOWN jsonVal+ UP)?                    #JsonArray
-    | tok=JsonObj (DOWN jsonVal+ UP)?                      #JsonObj
+    | tok=JsonObj (DOWN (JsonObjKey jsonVal)+ UP)?                      #JsonObj
 ;
