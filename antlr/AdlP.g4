@@ -28,12 +28,13 @@ annon
     | a=LINE_DOC                                                          #DocAnno
 ;
 top_level_statement
-    : annon* kw=ID a=ID typeParam? LCUR soruBody* RCUR SEMI                #StructOrUnion
-    | annon* kw=ID a=ID typeParam? EQ typeExpr (EQ jsonValue)? SEMI  #TypeOrNewtype
-    // | annon* kw=ID a=ID typeParam? EQ typeExpr SEMI  #Type
-    | kw=ID a=ID jsonValue SEMI                                            #ModuleAnnotation
+    // changed order so `kw {};` is treated as an annotation
+    : kw=ID a=ID jsonValue SEMI                                            #ModuleAnnotation
     | kw=ID a=ID b=ID  jsonValue SEMI                                      #DeclAnnotation
     | kw=ID a=ID DCOLON b=ID c=ID jsonValue SEMI                           #FieldAnnotation
+    | annon* kw=ID a=ID typeParam? LCUR soruBody* RCUR SEMI                #StructOrUnion
+    | annon* kw=ID a=ID typeParam? EQ typeExpr (EQ jsonValue)? SEMI  #TypeOrNewtype
+    // | annon* kw=ID a=ID typeParam? EQ typeExpr SEMI  #Type
 ;
 typeParam
     : LCHEVR typep+=ID (COMMA typep+=ID)* RCHEVR                                #TypeParameter
